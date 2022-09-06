@@ -5,6 +5,9 @@ from sequence_classification import SequenceClassification
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
+@app.route('/')
+def index():
+    return  'index'
 
 @app.route('/<path:text>')
 def classfication(text):
