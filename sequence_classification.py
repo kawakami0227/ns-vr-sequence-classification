@@ -48,5 +48,3 @@ class SequenceClassification:
         reply = self.reply[int(output[0]['label'][6:])]
         print(reply)
         return output, reply
-
-# git branch test
