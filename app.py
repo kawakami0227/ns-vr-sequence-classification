@@ -13,7 +13,6 @@ def index():
 
 @app.route('/<path:text>')
 def classfication(text):
-    # sequence_cl = SequenceClassification()
     output, reply = sequence_cl.classification(text=text)
     return jsonify({
         'label': output[0]['label'],
