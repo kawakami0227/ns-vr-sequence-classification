@@ -5,13 +5,15 @@ from sequence_classification import SequenceClassification
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
+sequence_cl = SequenceClassification()
+
 @app.route('/')
 def index():
     return 'index'
 
 @app.route('/<path:text>')
 def classfication(text):
-    sequence_cl = SequenceClassification()
+    # sequence_cl = SequenceClassification()
     output, reply = sequence_cl.classification(text=text)
     return jsonify({
         'label': output[0]['label'],
@@ -21,4 +23,4 @@ def classfication(text):
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8888, debug=True)
+    app.run(host='127.0.0.1', port=8080, debug=True)
